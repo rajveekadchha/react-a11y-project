@@ -11,3 +11,9 @@ test("returns sum of comma-separated numbers", () => {
 test("handles newline as a delimiter along with commas", () => {
   expect(add("1\n2,3")).toBe(6);
 });
+
+test("throws for negatives (lists all negatives)", () => {
+  expect(() => add("1,-2,3,-5")).toThrow(
+    "Negative numbers not allowed: -2, -5"
+  );
+});
