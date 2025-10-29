@@ -17,3 +17,14 @@ test("throws for negatives (lists all negatives)", () => {
     "Negative numbers not allowed: -2, -5"
   );
 });
+
+test("supports custom delimiter //;\\n1;2 -> 3", () => {
+  expect(add("//;\n1;2")).toBe(3);
+});
+
+test("trims whitespace around numbers with default delimiters", () => {
+  expect(add(" 1 ,  2 ,\n 3 ")).toBe(6);
+});
+
+test("trims whitespace around numbers with custom delimiter", () => {
+  expect(add("//|\n 1 |  2 |   3 ")).toBe(6);})
